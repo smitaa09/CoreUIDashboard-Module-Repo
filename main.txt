@@ -6,7 +6,7 @@
   },
   "resource": {
     "resource": "aws_s3_bucket",
-    "bucket": "testbucket1597732435629",
+    "bucket": "mybucket1597745695752",
     "acl": "private-read"
   }
 }

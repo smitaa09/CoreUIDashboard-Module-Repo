@@ -1,4 +1,3 @@
-{
   "provider": {
     "provider": "aws",
     "version": "~> 2.0",
@@ -9,4 +8,4 @@
     "bucket": "smita1597918454754",
     "acl": "public-read"
   }
-}
+

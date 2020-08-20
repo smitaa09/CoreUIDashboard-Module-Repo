@@ -2,11 +2,11 @@
   "provider": {
     "provider": "aws",
     "version": "~> 2.0",
-    "region": "us-east-1"
+    "region": "us-east-2"
   },
   "resource": {
     "resource": "aws_s3_bucket",
-    "bucket": "testbucket1597732435629",
-    "acl": "private-read"
+    "bucket": "test1597913391809",
+    "acl": "public-read"
   }
 }

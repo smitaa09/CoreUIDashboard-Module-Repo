@@ -2,8 +2,8 @@ name: Apply
 
 on:
   push:
-    branches:
-      - master
+    paths:
+      - 's3/**'
 
 jobs:
   apply:

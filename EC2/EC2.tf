@@ -7,6 +7,6 @@ resource "aws_instance" "from-terraform" {
 
 tags = {
     Name = "MyInstance"
-    Env = "dev"
+    Env = "dev1"
   }
 }

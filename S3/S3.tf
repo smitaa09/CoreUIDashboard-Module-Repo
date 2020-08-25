@@ -3,8 +3,8 @@ provider "aws" {
   region  = "us-east-1"
 }
 resource "aws_s3_bucket" "s3Bucket" {
-  bucket = "testbucket1598343476586"
-  acl    = "private"
+  bucket = "awss3bucket1598353014473"
+  acl    = "public-read"
 }
 
 

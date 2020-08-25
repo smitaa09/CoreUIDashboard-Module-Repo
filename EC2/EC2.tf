@@ -6,7 +6,7 @@ resource "aws_instance" "from-terraform" {
   instance_type = "t2.micro"
 
 tags = {
-    Name = "MyInstance"
+    Name = "aws-EC2-Instance"
     Env = "dev"
   }
 }

@@ -1,12 +1,12 @@
 provider "aws" {
-  region = "us-east-1"
+  region = "regionValue"
 }
 resource "aws_instance" "from-terraform" {
   ami           = "ami-08f3d892de259504d"
-  instance_type = "t2.micro"
+  instance_type = "t2.microValue"
 
 tags = {
-    Name = "aws-EC2-Instance"
-    Env = "dev"
+    Name = "aws-EC2-InstanceValue"
+    Env = "envValue"
   }
 }

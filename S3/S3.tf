@@ -1,8 +1,8 @@
 provider "aws" {
   version = "~> 2.0"
-  region  = "us-east-1"
+  region  = "us-east-2"
 }
 resource "aws_s3_bucket" "s3Bucket" {
-  bucket = "awss3bucket1600762052272"
+  bucket = "smita1600845260019"
   acl    = "private"
 }

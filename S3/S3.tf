@@ -1,8 +1,8 @@
 provider "aws" {
   version = "~> 2.0"
-  region  = "us-east-2"
+  region  = "ap-south-1"
 }
 resource "aws_s3_bucket" "s3Bucket" {
-  bucket = "s3-demobucket1633953846010"
+  bucket = "testing1633954034250"
   acl    = "private"
 }

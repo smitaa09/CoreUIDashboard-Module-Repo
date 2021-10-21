@@ -17,7 +17,7 @@ resource "azurerm_network_interface" "nic" {
   resource_group_name = "rg-ani-c-001"
 
   ip_configuration {
-    name                          = "TestVM01-config1"
+    name                          = "TestVM01-config"
     subnet_id                     = azurerm_subnet.subnet.id
     private_ip_address_allocation = "Dynamic"
   }

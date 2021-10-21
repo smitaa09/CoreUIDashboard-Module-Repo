@@ -1,7 +1,15 @@
 provider "azurerm" {
-  source = "hashicorp/azurerm"
-  version = "2.61.0"
-  features {}  
+  version = "=2.61.0"
+  features {}
+}
+
+terraform {
+  backend "azurerm" {
+    resource_group_name  = "ANI_Digital_Lab"
+    storage_account_name = "anidigitallabdiag"
+    container_name       = "terraform-state"
+    key                  = "terraform.tfstate"
+  }
 }
 
 resource "azurerm_virtual_network" "vnet" {

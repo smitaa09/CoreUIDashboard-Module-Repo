@@ -5,8 +5,8 @@ provider "azurerm" {
 
 terraform {
   backend "azurerm" {
-    resource_group_name  = "ANI_Digital_Lab"
-    storage_account_name = "anidigitallabdiag"
+    resource_group_name  = "rg-ani-c-001"
+    storage_account_name = "terraformtfstatesa01"
     container_name       = "terraform-state"
     key                  = "terraform.tfstate"
   }

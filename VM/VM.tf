@@ -1,3 +1,9 @@
+provider "azurerm" {
+  source = "hashicorp/azurerm"
+  version = "2.61.0"
+  features {}  
+}
+
 resource "azurerm_virtual_network" "vnet" {
   name                = "ANI_Digital_Labvnet921"
   address_space       = ["10.0.2.0/24"]

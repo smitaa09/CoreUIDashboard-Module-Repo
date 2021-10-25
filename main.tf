@@ -17,7 +17,7 @@ provider "azurerm" {
 }
 
 resource "azurerm_storage_account" "sa" {
-  name                     = "testsa01"
+  name                     = "cmpsa01"
   resource_group_name      = "rg-ani-c-001"
   location                 = "eastus"
   account_tier             = "Standard"

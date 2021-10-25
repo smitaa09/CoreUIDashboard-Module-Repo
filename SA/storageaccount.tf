@@ -11,8 +11,9 @@ terraform {
 }
 
 provider "azurerm" {
-  features {}
   skip_provider_registration = "true"
+  features {}
+
 }
 
 resource "azurerm_storage_account" "sa" {

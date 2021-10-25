@@ -41,7 +41,7 @@ resource "azurerm_network_interface" "nic" {
 }
 
 resource "azurerm_virtual_machine" "virtualmachine" {  
-  name                  = "TestVM01"
+  name                  = "TestVM001"
   location              = "eastus"
   resource_group_name   = "rg-ani-c-001"
   network_interface_ids = [azurerm_network_interface.nic.id]

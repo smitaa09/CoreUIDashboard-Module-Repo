@@ -15,19 +15,23 @@ provider "azurerm" {
   features {}
 }
 
-resource "azurerm_virtual_network" "vnet" {
-  name                = "ANI_Digital_Labvnet921"
-  address_space       = ["10.0.2.0/24"]
-  location            = "eastus"
-  resource_group_name = "ANI_Digital_Lab"
+# refer to a existing vnet
+data "azurerm_virtual_network" "virtualnetwork" {
+  name                  = "ANI_Digital_Labvnet921"  
+  resource_group_name   = "ANI_Digital_Lab"
 }
-
-resource "azurerm_subnet" "subnet" {
+# refere to existing subnet
+data "azurerm_subnet" "subnet" {
   name                 = "default"
   resource_group_name  = "ANI_Digital_Lab"
-  virtual_network_name = azurerm_virtual_network.vnet.name
-  address_prefixes     = ["10.0.2.0/24"]
+  virtual_network_name = "ANI_Digital_Labvnet921"  
 }
+# refere to existing nsg
+data "azurerm_network_security_group" "nsg" {
+  name                 = "UIDevVM-nsg"
+  resource_group_name  = "ANI_Digital_Lab"
+}
+
 resource "azurerm_network_interface" "nic" {
   name                = "TestVM01-nic"
   location            = "eastus"
@@ -41,7 +45,7 @@ resource "azurerm_network_interface" "nic" {
 }
 
 resource "azurerm_virtual_machine" "virtualmachine" {  
-  name                  = "TestVM001"
+  name                  = "TestVM01"
   location              = "eastus"
   resource_group_name   = "rg-ani-c-001"
   network_interface_ids = [azurerm_network_interface.nic.id]

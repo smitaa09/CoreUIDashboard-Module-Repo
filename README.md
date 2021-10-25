@@ -1,2 +1,1 @@
-# smita
-Smita s repo
+Cloud Management Platform Github Repo for AWS and Azure modules

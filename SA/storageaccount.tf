@@ -3,8 +3,7 @@ terraform {
   required_providers {
     azurerm = {
       source = "hashicorp/azurerm"
-      version = "2.61.0"
-      skip_provider_registration = "true"
+      version = "2.61.0"      
     }
   }
 
@@ -13,6 +12,7 @@ terraform {
 
 provider "azurerm" {
   features {}
+  skip_provider_registration = "true"
 }
 
 resource "azurerm_storage_account" "sa" {

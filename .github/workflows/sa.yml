@@ -26,7 +26,7 @@ jobs:
       uses: hashicorp/setup-terraform@v1
 
     - name: Terraform Init
-      run: terraform init -path SA/
+      run: terraform -chdir="./SA" init
 
     - name: Terraform Apply
-      run: terraform apply -auto-approve -path SA/
+      run: terraform -chdir="./SA" apply -auto-approve

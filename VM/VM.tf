@@ -63,7 +63,7 @@ resource "azurerm_virtual_machine" "virtualmachine" {
     caching           = "ReadWrite"
     create_option     = "FromImage"
     managed_disk_type = "Standard_LRS"
-    disk_size_gb      = "32" 
+    disk_size_gb      = "127" 
   }
   os_profile {
     computer_name  = "TestVM01"

@@ -20,13 +20,13 @@ jobs:
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-    - uses: actions/checkout@v2   
+    - uses: actions/checkout@master   
 
     - name: Setup terraform
       uses: hashicorp/setup-terraform@v1
 
     - name: Terraform Init
-      run: terraform init
+      run: terraform -chdir="./VM" init
 
     - name: Terraform Apply
-      run: terraform apply -auto-approve
+      run: terraform -chdir="./VM" apply -auto-approve

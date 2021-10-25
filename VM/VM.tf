@@ -1,15 +1,18 @@
-provider "azurerm" {
-  version = "=2.61.0"
-  features {}
+# Configure the Azure provider
+terraform {
+  required_providers {
+    azurerm = {
+      source = "hashicorp/azurerm"
+      version = "2.61.0"      
+    }
+  }
+
+  required_version = ">= 0.14.9"
 }
 
-terraform {
-  backend "azurerm" {
-    resource_group_name  = "rg-ani-c-001"
-    storage_account_name = "terraformtfstatesa01"
-    container_name       = "terraform-state"
-    key                  = "terraform.tfstate"
-  }
+provider "azurerm" {
+  skip_provider_registration = "true"
+  features {}
 }
 
 resource "azurerm_virtual_network" "vnet" {

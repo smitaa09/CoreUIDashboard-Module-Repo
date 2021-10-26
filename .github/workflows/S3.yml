@@ -3,7 +3,7 @@ name: S3
 on:
   push:
     paths:
-      - 'S3/**'
+      - 'AWS/S3/**'
 
 jobs:
   apply:

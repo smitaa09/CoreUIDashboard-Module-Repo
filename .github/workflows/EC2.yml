@@ -3,7 +3,7 @@ name: EC2
 on:
   push:
     paths:
-      - 'EC2/**'
+      - 'AWS/EC2/**'
 
 jobs:
   apply:
@@ -17,9 +17,9 @@ jobs:
       - name: terraform apply
         uses: dflook/terraform-apply@v1
         with:
-          path: EC2
+          path: AWS/EC2
           auto_approve: true
         env:
-          TF_ACTION_WORKING_DIR: 'EC2'
+          TF_ACTION_WORKING_DIR: 'AWS/EC2'
           AWS_ACCESS_KEY_ID:  ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY:  ${{ secrets.AWS_SECRET_ACCESS_KEY }}

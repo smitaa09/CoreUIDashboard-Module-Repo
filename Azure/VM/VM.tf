@@ -1,15 +1,3 @@
-# Configure the Azure provider
-terraform {
-  required_providers {
-    azurerm = {
-      source = "hashicorp/azurerm"
-      version = "2.61.0"      
-    }
-  }
-
-  required_version = ">= 0.14.9"
-}
-
 provider "azurerm" {
   skip_provider_registration = "true"
   features {}
@@ -23,13 +11,13 @@ data "azurerm_virtual_network" "virtualnetwork" {
 # refere to existing subnet
 data "azurerm_subnet" "subnet" {
   name                 = "default"
-  resource_group_name  = "ANI_Digital_Lab"
-  virtual_network_name = "ANI_Digital_Labvnet921"  
+  resource_group_name  = "${data.azurerm_virtual_network.virtualnetwork.resource_group_name}"
+  virtual_network_name = "${data.azurerm_virtual_network.virtualnetwork.name}" 
 }
 # refere to existing nsg
 data "azurerm_network_security_group" "nsg" {
   name                 = "UIDevVM-nsg"
-  resource_group_name  = "ANI_Digital_Lab"
+  resource_group_name  = "${data.azurerm_virtual_network.virtualnetwork.name}"
 }
 
 resource "azurerm_network_interface" "nic" {
@@ -45,7 +33,7 @@ resource "azurerm_network_interface" "nic" {
 }
 
 resource "azurerm_virtual_machine" "virtualmachine" {  
-  name                  = "TestVM001"
+  name                  = "TestVM01"
   location              = "eastus"
   resource_group_name   = "rg-ani-c-001"
   network_interface_ids = [azurerm_network_interface.nic.id]

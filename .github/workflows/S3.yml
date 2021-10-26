@@ -18,9 +18,9 @@ jobs:
       - name: terraform apply
         uses: dflook/terraform-apply@v1
         with:
-          path: S3
+          path: AWS/S3
           auto_approve: true
         env:
-          TF_ACTION_WORKING_DIR: 'S3'
+          TF_ACTION_WORKING_DIR: 'AWS/S3'
           AWS_ACCESS_KEY_ID:  ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY:  ${{ secrets.AWS_SECRET_ACCESS_KEY }}

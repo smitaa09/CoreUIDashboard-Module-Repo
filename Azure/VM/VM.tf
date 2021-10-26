@@ -14,10 +14,10 @@ data "azurerm_subnet" "subnet" {
   resource_group_name  = "${data.azurerm_virtual_network.virtualnetwork.resource_group_name}"
   virtual_network_name = "${data.azurerm_virtual_network.virtualnetwork.name}" 
 }
-# refere to existing nsg
+# refere to existing nsg provided nsg is in vNet Resource group
 data "azurerm_network_security_group" "nsg" {
   name                 = "UIDevVM-nsg"
-  resource_group_name  = "${data.azurerm_virtual_network.virtualnetwork.name}"
+  resource_group_name  = "${data.azurerm_virtual_network.virtualnetwork.resource_group_name}"
 }
 
 resource "azurerm_network_interface" "nic" {

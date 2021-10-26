@@ -3,7 +3,7 @@ name: VM
 on:
   push:
     paths:
-      - 'VM/**'
+      - 'Azure/VM/**'
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -26,7 +26,7 @@ jobs:
       uses: hashicorp/setup-terraform@v1
 
     - name: Terraform Init
-      run: terraform -chdir="./VM" init
+      run: terraform -chdir="./Azure/VM" init
 
     - name: Terraform Apply
-      run: terraform -chdir="./VM" apply -auto-approve
+      run: terraform -chdir="./Azure/VM" apply -auto-approve

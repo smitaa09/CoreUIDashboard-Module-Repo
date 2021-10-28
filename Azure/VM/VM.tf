@@ -54,7 +54,7 @@ resource "azurerm_virtual_machine" "virtualmachine" {
     disk_size_gb      = "127" 
   }
   os_profile {
-    computer_name  = "TestVM01"
+    computer_name  = "TestVM001"
     admin_username = "cloudadmin"
     admin_password = "password@123"
   }

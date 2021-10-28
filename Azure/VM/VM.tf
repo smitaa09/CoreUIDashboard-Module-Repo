@@ -21,12 +21,12 @@ data "azurerm_network_security_group" "nsg" {
 }
 
 resource "azurerm_network_interface" "nic" {
-  name                = "${azurerm_virtual_machine.virtualmachine.name}-nic"
+  name                = "TestVM01-nic"
   location            = "eastus"
   resource_group_name = "rg-ani-c-001"
 
   ip_configuration {
-    name                          = "${azurerm_virtual_machine.virtualmachine.name}-config"
+    name                          = "TestVM01-config"
     subnet_id                     = "${data.azurerm_subnet.subnet.id}"
     private_ip_address_allocation = "Dynamic"
   }
@@ -34,8 +34,8 @@ resource "azurerm_network_interface" "nic" {
 
 resource "azurerm_virtual_machine" "virtualmachine" {  
   name                  = "TestVM01"
-  location              = "${azurerm_network_interface.nic.location}"
-  resource_group_name   = "${azurerm_network_interface.nic.resource_group_name}"
+  location              = azurerm_network_interface.nic.location
+  resource_group_name   = azurerm_network_interface.nic.resource_group_name
   network_interface_ids = [azurerm_network_interface.nic.id]
   vm_size               = "Standard_B1s"
 

@@ -34,8 +34,8 @@ resource "azurerm_network_interface" "nic" {
 
 resource "azurerm_virtual_machine" "virtualmachine" {  
   name                  = "TestVM01"
-  location              = azurerm_network_interface.nic.location
-  resource_group_name   = azurerm_network_interface.nic.resource_group_name
+  location              = "${azurerm_network_interface.nic.location}"
+  resource_group_name   = "${azurerm_network_interface.nic.resource_group_name}"
   network_interface_ids = [azurerm_network_interface.nic.id]
   vm_size               = "Standard_B1s"
 
@@ -46,7 +46,7 @@ resource "azurerm_virtual_machine" "virtualmachine" {
     version   = "latest"
   }
   storage_os_disk {
-    name              = "${azurerm_virtual_machine.virtualmachine.name}-osDisk01"
+    name              = "TestVM01-osDisk01"
     os_type           = "Windows"
     caching           = "ReadWrite"
     create_option     = "FromImage"
@@ -54,7 +54,7 @@ resource "azurerm_virtual_machine" "virtualmachine" {
     disk_size_gb      = "127" 
   }
   os_profile {
-    computer_name  = "${azurerm_virtual_machine.virtualmachine.name}"
+    computer_name  = "TestVM01"
     admin_username = "cloudadmin"
     admin_password = "password@123"
   } 

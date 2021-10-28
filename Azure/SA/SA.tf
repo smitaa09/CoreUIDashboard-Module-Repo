@@ -4,9 +4,9 @@ provider "azurerm" {
 }
 
 resource "azurerm_storage_account" "sa" {
-  name                     = "cmpdashboardsa01"
+  name                     = "dashboardsa01"
   resource_group_name      = "rg-ani-c-001"
-  location                 = "eastus"
+  location                 = "us-east"
   account_tier             = "Standard"
   account_replication_type = "LRS"
 }

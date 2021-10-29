@@ -40,14 +40,14 @@ resource "azurerm_virtual_machine" "virtualmachine" {
   vm_size               = "Standard_B1s"
 
   storage_image_reference {
-    publisher = "MicrosoftWindowsServer"
-    offer     = "WindowsServer"
-    sku       = "2019-Datacenter"
+    publisher = "Canonical"
+    offer     = "UbuntuServer"
+    sku       = "16.04-LTS"
     version   = "latest"
   }
   storage_os_disk {
     name              = "TestVM02-osDisk01"
-    os_type           = "Windows"
+    os_type           = "Linux"
     caching           = "ReadWrite"
     create_option     = "FromImage"
     managed_disk_type = "Standard_LRS"
@@ -57,7 +57,8 @@ resource "azurerm_virtual_machine" "virtualmachine" {
     computer_name  = "TestVM02"
     admin_username = "cloudadmin"
     admin_password = "Password@123"
-  }
-    os_profile_windows_config { 
+  }  
+  os_profile_linux_config {
+    disable_password_authentication = false
   }
 }

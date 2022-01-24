@@ -57,8 +57,7 @@ resource "azurerm_virtual_machine" "virtualmachine" {
     computer_name  = "TestVM02"
     admin_username = "cloudadmin"
     admin_password = "Password@123"
-  }  
-  os_profile_linux_config {
-    disable_password_authentication = false
+  }
+    os_profile_windows_config { 
   }
 }

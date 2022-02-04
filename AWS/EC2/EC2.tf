@@ -2,7 +2,7 @@ provider "aws" {
   region = "us-east-1"
 }
 resource "aws_instance" "from-terraform" {
-  ami           = "ami-043656646caf929b9"
+  ami           = "ami-07dc734dc14746eab"
   instance_type = "t2.micro"
 
 tags = {

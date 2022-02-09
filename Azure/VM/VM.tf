@@ -16,24 +16,24 @@ data "azurerm_subnet" "subnet" {
 }
 # refere to existing nsg provided nsg is in vNet Resource group
 data "azurerm_network_security_group" "nsg" {
-  name                 = "UIDevVM-nsg"
+  name                 = "VM-Plotly-nsg"
   resource_group_name  = "${data.azurerm_virtual_network.virtualnetwork.resource_group_name}"
 }
 
 resource "azurerm_network_interface" "nic" {
-  name                = "TestVM02-nic"
+  name                = "TestVM01-nic"
   location            = "eastus"
   resource_group_name = "rg-ani-c-001"
 
   ip_configuration {
-    name                          = "TestVM02-config"
+    name                          = "TestVM01-config"
     subnet_id                     = "${data.azurerm_subnet.subnet.id}"
     private_ip_address_allocation = "Dynamic"
   }
 }
 
 resource "azurerm_virtual_machine" "virtualmachine" {  
-  name                  = "TestVM02"
+  name                  = "TestVM01"
   location              = "eastus"
   resource_group_name   = "rg-ani-c-001"
   network_interface_ids = [azurerm_network_interface.nic.id]
@@ -46,7 +46,7 @@ resource "azurerm_virtual_machine" "virtualmachine" {
     version   = "latest"
   }
   storage_os_disk {
-    name              = "TestVM02-osDisk01"
+    name              = "TestVM01-osDisk01"
     os_type           = "Windows"
     caching           = "ReadWrite"
     create_option     = "FromImage"
@@ -54,9 +54,9 @@ resource "azurerm_virtual_machine" "virtualmachine" {
     disk_size_gb      = "128" 
   }
   os_profile {
-    computer_name  = "TestVM02"
+    computer_name  = "TestVM01"
     admin_username = "cloudadmin"
-    admin_password = "Password@123"
+    admin_password = "TCS@12345"
   }
     os_profile_windows_config { 
   }
